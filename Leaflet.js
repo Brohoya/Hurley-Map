@@ -20,6 +20,8 @@ const ecoles = [
 ];
 
 var mymap = L.map('map');
+var markerGroup = L.layerGroup().addTo(mymap)
+const liste = document.getElementById('listeEcoles');
 
 var iconNormal = L.icon({
 	iconUrl: "Images/hurleyLogo.png",
@@ -29,8 +31,13 @@ var iconNormal = L.icon({
 	popupAnchor:[0,-64.5]
 })
 
- 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
-
+var iconHightlight = L.icon({
+	iconUrl: "Images/hurleyHighlight.png",
+	iconSize:[50,64.5],
+	shadowSize:[50,64.5],
+	iconAnchor:[25,64.5],
+	popupAnchor:[0,-64.5]
+})
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 15,
@@ -41,32 +48,34 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 		zoomOffset: -1
 }).addTo(mymap);
 
-
-/*         MAP PLUS STYLE MAIS FLOU JE SAIS PAS PK
-L.tileLayer('https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=7c3deec0b04f45cba938953edeb89770', {
-		maxZoom: 15,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1
-}).addTo(mymap);
-*/
-
 var popup = L.popup();
 var view=[46.918797, 2.427992];
 var zoom=5;
 mymap.setView(view,zoom);
 
-
 function afficherMarker(nom, adresse, site) {
 	L.esri.Geocoding.geocode({requestParams:{maxLocations:1}}).text(adresse).run((error,results) => {
 		L.marker([results.results[0].latlng.lat,results.results[0].latlng.lng],{icon: iconNormal})
-		.addTo(mymap)
+		.addTo(markerGroup)
 		.bindPopup("<b>Ecole de surf : </b>" + nom + "<br>" + "<b>Site Web : </b><a href='" + site + "' target='_blank'>" + site + "</a>")
 	})
 }
 
+function zoomer(nom, adresse, site) {
+	markerGroup.clearLayers();
+	for (let i = 0; i < ecoles.length; i++) {if(ecoles[i].adresse[0] != adresse) {afficherMarker(ecoles[i].nom, ecoles[i].adresse[0], ecoles[i].site)}};
+	L.esri.Geocoding.geocode({requestParams:{maxLocations:1}}).text(adresse).run((error,results) => {
+		view=[results.results[0].latlng.lat, results.results[0].latlng.lng];
+		zoom=12;
+		mymap.flyTo(view, zoom, {"animate": true, "duration": 3});
+		L.marker([results.results[0].latlng.lat,results.results[0].latlng.lng],{icon: iconHightlight})
+		.addTo(markerGroup)
+		.bindPopup("<b>Ecole de surf : </b>" + nom + "<br>" + "<b>Emplacement : </b>" + adresse + "<br>" + "<b>Site Web : </b><a href='" + site + "' target='_blank'>" + site + "</a>")
+		.openPopup()
+	})
+}
+
 for (let i = 0; i < ecoles.length; i++) {
-	afficherMarker(ecoles[i].nom, ecoles[i].adresse[0], ecoles[i].site)
+	liste.innerHTML += `<tr><td cellpadding="0" cellspacing="0">` + ecoles[i].nom + `</td><td><button onclick="zoomer('` + ecoles[i].nom + `','` + ecoles[i].adresse[0] + `','` + ecoles[i].site + `')">Go</button></td></tr>`;
+	afficherMarker(ecoles[i].nom, ecoles[i].adresse[0], ecoles[i].site);
 }

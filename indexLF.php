@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS et Font -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="styleux.css">
     <link rel="icon" href="Images/hurleyIcone.png">
@@ -57,7 +58,16 @@
 
         <div class="container">
             <div id='map' class="map-container"> </div>
+            <div class="research-container">
+                <table>
+                    <thead>
+                        <tr><th colspan="2">Hurley school list</th></tr>
+                    </thead>
+                    <tbody id="listeEcoles"></tbody>
+                </table>
+            </div>
         </div>
+
 	</div>
     
     <script type="text/javascript" src="Leaflet.js"> </script>
