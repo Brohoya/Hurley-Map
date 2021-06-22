@@ -1,0 +1,177 @@
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    margin:0;
+    padding: 0;
+    background: url('Images/surfBackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: bottom;
+}
+
+body {
+    height: 100%;
+    width: 100vh;
+    font-family: "Poppins",sans-serif;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100%;
+    margin: 0 auto;
+    padding: 125px 120px 50px 120px;
+}
+
+.logo {
+    display: flex;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 54px;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.77);
+}
+
+.logo .lgo {
+    vertical-align: middle;
+    padding-right: 15px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.77);
+}
+
+.logo img {
+    padding-top: 1px;
+}
+
+.nav-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 11px #BDBDBD;
+    border-radius: 35px;
+    padding: 0px 15px;
+    padding-right: 0;
+    position: fixed;
+    z-index: 250;
+    width: calc(100vw - 240px);
+    top: 35px;
+
+    /* Animation */
+    animation: fadeDown 1000ms forwards;
+    opacity: 0;
+}
+
+.nav-desktop .menu-items {
+    display: flex;
+    list-style: none;
+}
+
+.nav-desktop .menu-items  li{
+    margin: 0 45px;
+}
+
+.nav-desktop .menu-items li:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.nav-desktop .menu-items  li a{
+    text-decoration: none;
+    color: black;
+    font-family: Poppins;
+    font-size: 18px;
+    line-height: 27px;
+    align-items: center;
+    position: relative;
+}
+
+.nav-desktop .menu-items li a.active::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: black;
+    left: 0;
+    bottom: -15px;
+}
+
+.nav-desktop .menu-items li a.btn {
+    color: white;
+    background: black;
+    font-size: bolder;
+    padding: 15px 10px;
+    border-radius: 35px;
+}
+
+.nav-desktop .menu-items li a:hover{
+    border-bottom: 3px solid black;
+    padding-bottom: 12px;
+}
+
+.login {
+    transition: all 0.2s ease-in-out;
+}
+
+.login:hover {
+    transform: translateX(10px);
+}
+
+/* Map */
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 0 50px;
+    /* Animation */
+    animation: fadeToRight 800ms forwards cubic-bezier(0.22, 0.32, 0, 1.54);
+    opacity: 0;
+    animation-delay: 600ms;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    border:5px solid black;
+
+    /* Animation */
+    animation: fadeToRight 800ms forwards cubic-bezier(0.22, 0.32, 0, 1.54);
+    opacity: 0;
+    animation-delay: 100ms;
+}
+
+
+/* Animations */
+
+@keyframes fadeToRight {
+    from {
+        opacity:0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity:1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity:0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
