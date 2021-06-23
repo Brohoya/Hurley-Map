@@ -39,29 +39,21 @@
         <nav class="nav-desktop">
                 <div class="logo">
                     <img src="Images/hurleyLogoNavBar.svg" class="lgo">
-                    <a href="http://localhost/PFR/index.html">Hurley Surf Schools</a>
+                    <a href="http://localhost/PFR/index.html">Hurley Surf Club Europe</a>
                 </div>
                 <ul class="menu-items">
                     <li>
-                        <a href="http://localhost/PFR/index.html#projet">Presentation</a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/PFR/index.html#equipe">Team</a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/PFR/index.html#telecharger">Download</a>
-                    </li>
-                    <li>
                         <div class="login"><a href="http://localhost/PFR/acheter.html" class="btn">&nbsp; <i class="fas fa-sign-in-alt"></i> LOGIN &nbsp;</a></div>
+                    </li>   
                 </ul>
         </nav>
 
         <div class="container">
             <div id='map' class="map-container"> </div>
-            <div class="research-container">
+            <div class="research-container style="overflow: auto">
                 <table>
                     <thead>
-                        <tr><th colspan="2">Hurley school list</th></tr>
+                        <tr><th>Country</th><th colspan="2">HSC List</th></tr>
                     </thead>
                     <tbody id="listeEcoles"></tbody>
                 </table>

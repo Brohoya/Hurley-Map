@@ -1,22 +1,22 @@
 
 const ecoles = [
+	{"nom": "City Wave", "adresse": ["Machtlfinger Str. 21, 81379 München, Allemagne"], "site": "https://citywave.de/fr/"},
 	{"nom": "Pukas Surf Club San Sebastien", "adresse": ["Zurriola Hiribidea, 24, 20002 Donostia, Gipuzkoa, Espagne"], "site": "https://pukassurf.com/"},
 	{"nom": "Pukas Surf Club Zarautz", "adresse": ["Lizardi Kalea, 9, 20800 Zarautz, Gipuzkoa, Espagne"], "site": "https://pukassurf.com/"},
+	{"nom": "TAKE Surf School", "adresse": ["Paseo Maritimo, Playa, 11159 El Palmar de Vejer, Cádiz, Espagne"], "site": "https://takesurfelpalmar.com/"},
+	{"nom": "Mission Surf School", "adresse": ["PO-308, 36990, Pontevedra, Espagne"], "site": "https://missionsurfshop.com/"},
+	{"nom": "Surf School BuenaOnda", "adresse": ["Av. Francisco Giner de los Ríos, 48, 39540 San Vicente de la Barquera, Cantabria, Espagne"], "site": "https://escueladesurfbuenaonda.com/"},
+	{"nom": "Rebels Tarifa Kitesurfing School", "adresse": ["C. Coronel Francisco Valdés, 4, 11380 Tarifa, Cádiz, Espagne"], "site": "https://www.rebelstarifa.com/fr/kitesurf-a-tarifa/"},
+	{"nom": "Fitenia Surf Shop", "adresse": ["Av. Ángel Guimerá, 13, 38003 Santa Cruz de Tenerife, Espagne"], "site": "https://www.fiteniasurfshop.es/"},
 	{"nom": "ByTheWave", "adresse": ["619 Bis Avenue des Artisans, 40150 Soorts-Hossegor, France"], "site": "https://bythewave.surf/"},
 	{"nom": "Darrigood Surf School", "adresse": ["Plage de la Gravière, 40150 Soorts-Hossegor, France"], "site": "https://ecoledesurf.com/hossegor/"},
 	{"nom": "Bréti Surf School", "adresse": ["Plage des dunes, Bretignolles-sur-Mer, 1 Avenue des Dunes, 85470, France"], "site": "https://www.breti-surfschool.com/"},
-	{"nom": "Fitenia Surf Shop", "adresse": ["Av. Ángel Guimerá, 13, 38003 Santa Cruz de Tenerife, Espagne"], "site": "https://www.fiteniasurfshop.es/"},
 	{"nom": "Hossegor Surf Center", "adresse": ["Plage Naturiste, Bouldevard du Front de Mer, 40150 Soorts-Hossegor, France"], "site": "https://www.hossegorsurfcenter.com/"},
-	{"nom": "MSC-SURFCOACHING & PERFORMANCE SURF CENTER", "adresse": ["2 Boulevard de l'Océan, 56270 Ploemeur, France"], "site": "https://www.msc-surfcoaching.com/accueil"},
+	{"nom": "MSC-SurfCoaching", "adresse": ["2 Boulevard de l'Océan, 56270 Ploemeur, France"], "site": "https://www.msc-surfcoaching.com/accueil"},
 	{"nom": "SURF EVOLUTION", "adresse": ["1 plage des Casernes, 40510 Seignosse, France"], "site": "https://www.surfevolution.fr/"},
 	{"nom": "Ecole de Surf Océan Expérience", "adresse": ["1 Place du Général de Gaulle, 33680 Lacanau, France"], "site": "https://www.ecoledesurf-lacanau.com/"},
-	{"nom": "Ecole de Surf TAKE OFF", "adresse": ["23 Route du Jard, 17370 Le Grand-Village-Plage"], "site": "https://ecole-take-off.com/"},
-	{"nom": "TAKE Surf School", "adresse": ["Paseo Maritimo, Playa, s/n, 11159 El Palmar de Vejer, Cádiz, Espagne"], "site": "https://takesurfelpalmar.com/"},
-	{"nom": "Mission Surf School", "adresse": ["PO-308, 36990, Pontevedra, Espagne"], "site": "https://missionsurfshop.com/"},
-	{"nom": "Surf School BuenaOnda", "adresse": ["Av. Francisco Giner de los Ríos, 48, 39540 San Vicente de la Barquera, Cantabria, Espagne"], "site": "https://escueladesurfbuenaonda.com/"},
+	{"nom": "Ecole de Surf TAKE OFF", "adresse": ["23 Route du Jard, 17370 Le Grand-Village-Plage, France"], "site": "https://ecole-take-off.com/"},
 	{"nom": "Surfing Life Club", "adresse": ["Av. Gen. Norton de Matos 378, 4450-208 Matosinhos, Portugal"], "site": "https://www.surfinglifeclub.com/en/"},
-	{"nom": "Rebels Tarifa Kitesurfing School", "adresse": ["C. Coronel Francisco Valdés, 4, 11380 Tarifa, Cádiz, Espagne"], "site": "https://www.rebelstarifa.com/fr/kitesurf-a-tarifa/"},
-	{"nom": "City Wave", "adresse": ["Machtlfinger Str. 21, 81379 München, Allemagne"], "site": "https://citywave.de/fr/"},
 ];
 
 var mymap = L.map('map');
@@ -76,6 +76,6 @@ function zoomer(nom, adresse, site) {
 }
 
 for (let i = 0; i < ecoles.length; i++) {
-	liste.innerHTML += `<tr><td cellpadding="0" cellspacing="0">` + ecoles[i].nom + `</td><td><button onclick="zoomer('` + ecoles[i].nom + `','` + ecoles[i].adresse[0] + `','` + ecoles[i].site + `')">Go</button></td></tr>`;
+	liste.innerHTML += `<tr><td>` + ecoles[i].adresse[0].split(',')[ecoles[i].adresse[0].split(',').length-1] + `</td><td cellpadding="0" cellspacing="0">` + ecoles[i].nom + `</td><td><button onclick="zoomer('` + ecoles[i].nom + `','` + ecoles[i].adresse[0] + `','` + ecoles[i].site + `')">Go</button></td></tr>`;
 	afficherMarker(ecoles[i].nom, ecoles[i].adresse[0], ecoles[i].site);
 }
