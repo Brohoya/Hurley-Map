@@ -164,9 +164,6 @@ body {
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(50%, 100%));
 
-    width: 100%;
-    height: 100%;
-
     /* Animation */
     animation: fadeToRight 800ms forwards cubic-bezier(0.22, 0.32, 0, 1.54);
     opacity: 0;
@@ -176,7 +173,7 @@ body {
 .map-container {
     border-radius: 35px;
     border:5px solid black;
-    
+
     /* Animation */
     animation: fadeToRight 800ms forwards cubic-bezier(0.22, 0.32, 0, 1.54);
     opacity: 0;
@@ -200,6 +197,12 @@ body {
 
 .research-container td {
     padding-left: 1vw;
+}
+
+.research-container tbody tr:hover {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    cursor: default;
 }
 
 .research-container button {

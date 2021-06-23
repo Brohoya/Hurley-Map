@@ -54,6 +54,7 @@ var zoom=5;
 mymap.setView(view,zoom);
 
 function afficherMarker(nom, adresse, site) {
+	setTimeout(function(){ mymap.invalidateSize(true)}, 0);
 	L.esri.Geocoding.geocode({requestParams:{maxLocations:1}}).text(adresse).run((error,results) => {
 		L.marker([results.results[0].latlng.lat,results.results[0].latlng.lng],{icon: iconNormal})
 		.addTo(markerGroup)
@@ -64,6 +65,7 @@ function afficherMarker(nom, adresse, site) {
 function zoomer(nom, adresse, site) {
 	markerGroup.clearLayers();
 	for (let i = 0; i < ecoles.length; i++) {if(ecoles[i].adresse[0] != adresse) {afficherMarker(ecoles[i].nom, ecoles[i].adresse[0], ecoles[i].site)}};
+	setTimeout(function(){ mymap.invalidateSize(true)}, 0);
 	L.esri.Geocoding.geocode({requestParams:{maxLocations:1}}).text(adresse).run((error,results) => {
 		view=[results.results[0].latlng.lat, results.results[0].latlng.lng];
 		zoom=12;
