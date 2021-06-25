@@ -1,0 +1,132 @@
+html {
+    height: 100%;
+    width: 100%;
+    margin:0;
+    padding: 0;
+    background: url('Images/surfBackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: bottom;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.navbar {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 11px #BDBDBD;
+    border-radius: 35px;
+    margin-top: 2vh;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.77);
+    font-size: calc(30% + 1vw + 1vh);
+}
+
+.navbar img {
+    width: calc(5% + 1vw + 1vh);
+    height: calc(5% + 1vw + 1vh);
+}
+
+.container-fluid button {
+    margin-left: auto;
+    font-size: calc(10% + 1vw + 1vh);
+    padding: 5px 4px;
+    border-radius: 35px;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.container-fluid button:hover {
+    transform: translateX(10px);
+}
+
+.row {
+    height: 50vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.col-sm-4 {
+    min-width: max-content;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin:0;
+    padding: 0;
+    background: none;
+}
+
+/* .container {
+    padding: 0 5vw;
+} */
+
+#map {
+    border-radius: 35px;
+    border:5px solid black;
+    min-height: 30vh;
+    margin-bottom: 5vh;
+
+    /* Animation */
+    /* animation: fadeToRight 800ms forwards cubic-bezier(0.22, 0.32, 0, 1.54);
+    opacity: 0;
+    animation-delay: 100ms; */
+}
+
+.research-container {
+    /* min-width: fit-content; */
+    min-width: max-content;
+    max-width: 45vw;
+    background-color: white;
+    border-radius: 15px;
+    border-style: solid;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 5vh;
+}
+
+.research-container table {
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 3px;
+    min-width: max-content;
+}
+
+.research-container td {
+    padding-left: 1vw;
+    min-width: max-content;
+}
+
+.research-container thead {
+    text-align: center;
+    min-width: max-content;
+}
+
+.research-container tbody tr:hover {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    cursor: default;
+}
+
+.research-container button {
+    border: none;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    font-family: "Poppins",sans-serif;
+}
+
+.research-container button:hover {
+    cursor: pointer;
+}

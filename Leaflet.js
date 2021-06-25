@@ -8,11 +8,11 @@ const ecoles = [
 	{"nom": "Surf School BuenaOnda", "adresse": ["Av. Francisco Giner de los Ríos, 48, 39540 San Vicente de la Barquera, Cantabria, Espagne"], "site": "https://escueladesurfbuenaonda.com/"},
 	{"nom": "Rebels Tarifa Kitesurfing School", "adresse": ["C. Coronel Francisco Valdés, 4, 11380 Tarifa, Cádiz, Espagne"], "site": "https://www.rebelstarifa.com/fr/kitesurf-a-tarifa/"},
 	{"nom": "Fitenia Surf Shop", "adresse": ["Av. Ángel Guimerá, 13, 38003 Santa Cruz de Tenerife, Espagne"], "site": "https://www.fiteniasurfshop.es/"},
-	{"nom": "ByTheWave", "adresse": ["619 Bis Avenue des Artisans, 40150 Soorts-Hossegor, France"], "site": "https://bythewave.surf/"},
+	{"nom": "ByTheWave", "adresse": ["Camping les Cigales, Avenue de l\\'Océan, 40660 Moliets-Plage, France"], "site": "https://bythewave.surf/"},
 	{"nom": "Darrigood Surf School", "adresse": ["Plage de la Gravière, 40150 Soorts-Hossegor, France"], "site": "https://ecoledesurf.com/hossegor/"},
 	{"nom": "Bréti Surf School", "adresse": ["Plage des dunes, Bretignolles-sur-Mer, 1 Avenue des Dunes, 85470, France"], "site": "https://www.breti-surfschool.com/"},
 	{"nom": "Hossegor Surf Center", "adresse": ["Plage Naturiste, Bouldevard du Front de Mer, 40150 Soorts-Hossegor, France"], "site": "https://www.hossegorsurfcenter.com/"},
-	{"nom": "MSC-SurfCoaching", "adresse": ["2 Boulevard de l'Océan, 56270 Ploemeur, France"], "site": "https://www.msc-surfcoaching.com/accueil"},
+	{"nom": "MSC-SurfCoaching", "adresse": ["2 Boulevard de l\\'Océan, 56270 Ploemeur, France"], "site": "https://www.msc-surfcoaching.com/accueil"},
 	{"nom": "SURF EVOLUTION", "adresse": ["1 plage des Casernes, 40510 Seignosse, France"], "site": "https://www.surfevolution.fr/"},
 	{"nom": "Ecole de Surf Océan Expérience", "adresse": ["1 Place du Général de Gaulle, 33680 Lacanau, France"], "site": "https://www.ecoledesurf-lacanau.com/"},
 	{"nom": "Ecole de Surf TAKE OFF", "adresse": ["23 Route du Jard, 17370 Le Grand-Village-Plage, France"], "site": "https://ecole-take-off.com/"},
@@ -41,6 +41,7 @@ var iconHightlight = L.icon({
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 15,
+		minZoom: 3,
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		id: 'mapbox/streets-v11',
@@ -74,10 +75,11 @@ function zoomer(nom, adresse, site) {
 		.addTo(markerGroup)
 		.bindPopup("<b>Ecole de surf : </b>" + nom + "<br>" + "<b>Emplacement : </b>" + adresse + "<br>" + "<b>Site Web : </b><a href='" + site + "' target='_blank'>" + site + "</a>")
 		.openPopup()
-	})
+	}).catch((e) => console.log("Erreur : ",e))
 }
 
 for (let i = 0; i < ecoles.length; i++) {
 	liste.innerHTML += `<tr><td>` + ecoles[i].adresse[0].split(',')[ecoles[i].adresse[0].split(',').length-1] + `</td><td cellpadding="0" cellspacing="0">` + ecoles[i].nom + `</td><td><button onclick="zoomer('` + ecoles[i].nom + `','` + ecoles[i].adresse[0] + `','` + ecoles[i].site + `')">Go</button></td></tr>`;
 	afficherMarker(ecoles[i].nom, ecoles[i].adresse[0], ecoles[i].site);
+	console.log(ecoles[i].nom, ecoles[i].adresse[0], ecoles[i].site);
 }
