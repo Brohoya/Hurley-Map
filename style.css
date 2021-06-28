@@ -1,6 +1,7 @@
 html {
     height: 100%;
     width: 100%;
+    overflow: auto;
     margin:0;
     padding: 0;
     background: url('Images/surfBackground.jpg');
@@ -37,21 +38,27 @@ html {
     height: calc(5% + 1vw + 1vh);
 }
 
-.container-fluid button {
+#toggler {
     margin-left: auto;
     font-size: calc(10% + 1vw + 1vh);
-    padding: 5px 4px;
+    padding: 0;
+    border: none;
+}
+
+#bouton {
+    margin-left: auto;
+    font-size: calc(10% + 1vw + 1vh);
+    padding: 5px 15px;
     border-radius: 35px;
 
     transition: all 0.2s ease-in-out;
 }
 
-.container-fluid button:hover {
+#bouton:hover {
     transform: translateX(10px);
 }
 
 .row {
-    height: 50vh;
     margin-top: 10vh;
     margin-bottom: 10vh;
 }
@@ -61,6 +68,7 @@ html {
 }
 
 body {
+    overflow: auto;
     height: 100%;
     width: 100%;
     margin:0;
@@ -68,24 +76,14 @@ body {
     background: none;
 }
 
-/* .container {
-    padding: 0 5vw;
-} */
-
 #map {
     border-radius: 35px;
     border:5px solid black;
     min-height: 30vh;
     margin-bottom: 5vh;
-
-    /* Animation */
-    /* animation: fadeToRight 800ms forwards cubic-bezier(0.22, 0.32, 0, 1.54);
-    opacity: 0;
-    animation-delay: 100ms; */
 }
 
 .research-container {
-    /* min-width: fit-content; */
     min-width: max-content;
     max-width: 45vw;
     background-color: white;

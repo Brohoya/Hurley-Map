@@ -32,43 +32,26 @@
 
     <title>Map</title>
 </head>
-<body data-gr-c-s-loaded="true">
+<body>
 	<div class="container">
-        <!-- <nav class="nav-desktop">
-                <div class="logo">
-                    <img src="Images/hurleyLogoNavBar.svg" class="lgo">
-                    <a href="http://localhost/PFR/index.html">Hurley Surf Club Europe</a>
-                </div>
-                <ul class="menu-items">
-                    <li>
-                        <div class="login"><a href="http://localhost/PFR/acheter.html" class="btn">&nbsp; <i class="fas fa-sign-in-alt"></i> LOGIN &nbsp;</a></div>
-                    </li>   
-                </ul>
-        </nav> -->
-
-        <nav class="navbar">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="#" style="max-width: min-content">
                     <img src="Images/hurleyLogoNavBar.svg" alt="" width="30" height="30" class="d-inline-block align-text-top"> Hurley Surf Club Europe
                 </a>
-
-                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" id="toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbar">
-                    <button class="btn btn-dark"> LOGIN</button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+                    <button class="btn btn-dark" id="bouton"><i class="fas fa-sign-in-alt"></i> LOGIN</button>
                 </div>
-                    
-                
             </div>
         </nav>
 
-
-        <div class="row my-custom-row justify-content-between">
-            <div id='map' class="col-sm-7"> </div>
+        <div class="row row d-flex justify-content-center">
+            <div id='map' class="col-lg-7 col-md-12 col-sm-12 col-12" style="height: 65vh"> </div>
             <div class="col-sm-4">
-                <div class="research-container style="overflow: auto">
+                <div class="research-container style=">
                     <table>
                         <thead>
                             <tr><th>Country</th><th colspan="2">HSC List</th></tr>
